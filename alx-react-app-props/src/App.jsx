@@ -1,6 +1,6 @@
 
 import ProfilePage from './ProfilePage';
-import UserContext from './UserContext';
+import UserContext from './Context/UserContext';
 
 function App() {
   return (
