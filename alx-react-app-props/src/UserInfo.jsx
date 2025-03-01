@@ -1,4 +1,3 @@
-import react from 'react'
 import UserDetails from './UserDetails';
 
 function UserInfo({ userData }) {

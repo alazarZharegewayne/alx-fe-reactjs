@@ -1,4 +1,3 @@
-import react from 'react'
 import UserContext from './UserContext';
 function UserDetails({ userData }) {
     const UserData = useContext(UserContext)
