@@ -7,6 +7,7 @@ import Header from'./components/Header';
 import MainContent from './components/MainContents';
 import Footer from './components/MainContent';
 import UserProfile from'./components/UserProfile';
+import Counter from './components/Counter';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -15,7 +16,8 @@ function App() {
       <div>
         <Header />
         <MainContent />
-        <Footer />        
+        <Footer />   
+        <Counter />     
         <WelcomeMessage />
         <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
         <a href="https://vite.dev" target="_blank">
