@@ -5,10 +5,11 @@ const RecipeList = () => {
   const recipes = useRecipeStore((state) => state.recipes);
   const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
   const filterRecipes = useRecipeStore((state) => state.filterRecipes);
+  const searchTerm = useRecipeStore((state) => state.searchTerm);
 
   useEffect(() => {
     filterRecipes();
-  }, [recipes]);
+  }, [searchTerm, recipes]);
 
   const recipesToDisplay = filteredRecipes.length > 0 ? filteredRecipes : recipes;
 
