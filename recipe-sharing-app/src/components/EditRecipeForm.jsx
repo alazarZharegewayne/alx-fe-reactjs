@@ -7,9 +7,8 @@ const EditRecipeForm = ({ recipe, onCancel }) => {
   const updateRecipe = useRecipeStore((state) => state.updateRecipe);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // ✅ This prevents page reload
 
-    // Prevent empty inputs
     if (!title.trim() || !description.trim()) {
       alert("Title and description cannot be empty.");
       return;
