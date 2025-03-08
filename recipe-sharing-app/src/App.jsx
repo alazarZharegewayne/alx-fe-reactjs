@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import RecipeList from "./components/RecipeList";
 import AddRecipeForm from "./components/AddRecipeForm";
 import RecipeDetails from "./components/RecipeDetails";
 import SearchBar from "./components/SearchBar";
+import FavoritesList from "./components/FavoritesList";  // Import the FavoritesList
+import RecommendationsList from "./components/RecommendationsList";  // Import the RecommendationsList
 import { useRecipeStore } from "./store/recipeStore";
 
 function App() {
@@ -32,7 +34,11 @@ function App() {
         {isLoading ? (
           <p>Loading recipes...</p>
         ) : (
-          <RecipeList />
+          <>
+            <RecipeList />
+            <FavoritesList />  {/* Add FavoritesList component */}
+            <RecommendationsList />  {/* Add RecommendationsList component */}
+          </>
         )}
 
         <Routes>
