@@ -1,49 +1,54 @@
-import { useState } from "react";
+import React, { useState } from 'react';
 
-const RegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
-
-  const [errors, setErrors] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+function RegistrationForm() {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!formData.username || !formData.email || !formData.password) {
-      setErrors("All fields are required!");
-      return;
-    }
-
-    console.log("Form submitted:", formData);
-    setErrors("");
+    // Handle form submission logic
+    console.log({ username, email, password });
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Username:</label>
-        <input type="text" name="username" value={formData.username} onChange={handleChange} />
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={username} // Bind state to the input field
+          onChange={(e) => setUsername(e.target.value)} // Update state on change
+        />
       </div>
+
       <div>
-        <label>Email:</label>
-        <input type="email" name="email" value={formData.email} onChange={handleChange} />
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={email} // Bind state to the input field
+          onChange={(e) => setEmail(e.target.value)} // Update state on change
+        />
       </div>
+
       <div>
-        <label>Password:</label>
-        <input type="password" name="password" value={formData.password} onChange={handleChange} />
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={password} // Bind state to the input field
+          onChange={(e) => setPassword(e.target.value)} // Update state on change
+        />
       </div>
-      {errors && <p style={{ color: "red" }}>{errors}</p>}
+
       <button type="submit">Register</button>
     </form>
   );
-};
+}
 
 export default RegistrationForm;
