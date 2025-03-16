@@ -6,8 +6,8 @@ function UserProfile() {
           alt="User"
           className="rounded-full w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto"
         />
-        <h1 className="text-lg sm:text-xl md:text-2xl text-blue-800 my-3 sm:my-4">
-          ALAZAR
+        <h1 className="text-lg sm:text-xl md:text-xl text-blue-800 my-3 sm:my-4">
+          Alazar Haregewayne
         </h1>
         <p className="text-sm sm:text-base text-gray-600">
           Developer at ALX Co. Loves to write code and explore new technologies.
