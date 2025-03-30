@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { searchUser } from './services/api';
 import SearchBar from './components/SearchBar';
 import UserCard from './components/UserCard';
+import SearchUser from './components/SearchUser';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -22,6 +23,7 @@ function App() {
     <div>
       <h1>GitHub User Search</h1>
       <SearchBar onSearch={handleSearch} />
+      <searchUser />
       {error && <p>{error}</p>}
       {user && <UserCard user={user} />}
     </div>
