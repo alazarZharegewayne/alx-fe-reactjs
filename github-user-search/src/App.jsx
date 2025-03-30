@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { searchUser } from './services/api';
 import SearchBar from './components/SearchBar';
 import UserCard from './components/UserCard';
-import SearchUser from './components/SearchUser';
+import Search from './components/Search';
 
 function App() {
   const [user, setUser] = useState(null);
