@@ -11,36 +11,26 @@ export const searchUser = async (username) => {
   }
 };
 
-export const searchUsers = async (params) => {
+export const searchUsers = async (searchParams) => {
   try {
-    const { query, location, minRepos, page = 1 } = params;
-    
-    let q = query;
-    if (location) q += `+location:${location}`;
-    if (minRepos) q += `+repos:>${minRepos}`;
-    
+    let query = `${searchParams.query || ''}`;
+    if (searchParams.location) query += `+location:${searchParams.location}`;
+    if (searchParams.minRepos) query += `+repos:>${searchParams.minRepos}`;
+
     const response = await axios.get(`${BASE_URL}/search/users`, {
       params: {
-        q,
-        page,
-        per_page: 10
+        q: query,
+        page: searchParams.page || 1,
+        per_page: searchParams.perPage || 10
+      },
+      headers: {
+        ...(process.env.VITE_APP_GITHUB_TOKEN && {
+          Authorization: `token ${process.env.VITE_APP_GITHUB_TOKEN}`
+        })
       }
     });
 
-    const usersWithDetails = await Promise.all(
-      response.data.items.map(async (user) => {
-        const userDetails = await axios.get(`${BASE_URL}/users/${user.login}`);
-        return {
-          ...user,
-          ...userDetails.data
-        };
-      })
-    );
-
-    return {
-      ...response.data,
-      items: usersWithDetails
-    };
+    return response.data;
   } catch (error) {
     throw error;
   }
